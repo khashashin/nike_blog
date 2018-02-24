@@ -1,4 +1,5 @@
-{% load static wagtailuserbar %}
+{% load static wagtailuserbar wagtailcore_tags navigation %}
+{% get_site_root as site_root %}
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -51,8 +52,36 @@
       <div id="all">
         <div class="container-fluid">
           <div class="row row-offcanvas row-offcanvas-left">
+            <!--   *** SIDEBAR ***-->
+            <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+              <div class="sidebar-content">
+                <h1 class="sidebar-heading"> <a href="{% pageurl site_root %}">Nina Kettler</a></h1>
+                <p class="sidebar-p">
+                  {% block home_intro %}
+                    {# INTRO #}
+                  {% endblock %}
+                </p>
+                <ul class="sidebar-menu">
+                  <li class="active"><a href="{% pageurl site_root %}">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Get in touch</a></li>
+                </ul>
+                <p class="social">
+                  <a href="#" data-animate-hover="pulse" class="external facebook"><i class="fa fa-facebook"></i></a>
+                  <a href="#" data-animate-hover="pulse" class="external gplus"><i class="fa fa-google-plus"></i></a>
+                  <a href="#" data-animate-hover="pulse" class="external twitter"><i class="fa fa-twitter"></i></a>
+                  <a href="#" title="" class="external instagram"><i class="fa fa-instagram"></i></a>
+                  <a href="#" data-animate-hover="pulse" class="email"><i class="fa fa-envelope"></i></a></p>
+                <div class="copyright">
+                  <p class="credit">&copy;2018 Nina Kettler <br>
+                    Created by <a href="http://khashashin.com">Yusup Khasbulatov</a> | Template by <a href="https://bootstrapious.com/e-commerce-templates" class="external">Bootstrapious</a></p>
+                  <!-- Please do not remove the backlink to us, unless you support the development at https://bootstrapious.com/donate. It is part of the license conditions. Thanks for understanding :)        -->
 
-          {% include 'sidebar.html' %}
+                </div>
+              </div>
+            </div>
+            <!--   *** SIDEBAR END ***  -->
+
 
             <div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
               <div class="small-navbar visible-xs">

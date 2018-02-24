@@ -3,6 +3,13 @@
 
 {% block body_class %}template-homepage{% endblock %}
 
+
+{% block home_intro %}
+  {% if page.intro %}
+    {{ page.intro|richtext }}
+  {% endif %}
+{% endblock %}
+
 {% block content %}
 
 <!--   *** BLOG ***-->
