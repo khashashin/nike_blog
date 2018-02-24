@@ -2,7 +2,54 @@
 {% load static wagtailcore_tags wagtailimages_tags %}
 
 {% block body_class %}template-homepage{% endblock %}
+{% block extra_css %}
+<style>
+.gradient_bg {
+  background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 15s ease infinite;
+  -moz-animation: Gradient 15s ease infinite;
+  animation: Gradient 15s ease infinite;
+  margin-right: -15px;
+  margin-left: -15px;
+  min-height: 100vh;
+}
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+</style>
 
+{% endblock %}
 
 {% block home_intro %}
   {% if page.intro %}
@@ -13,23 +60,24 @@
 {% block content %}
 
 <!--   *** BLOG ***-->
-
-<div class="grid">
-  <div class="row">
-  {% for post in page.get_children %}
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
-        <div class="box-masonry">
-          {% image post.specific.intro_image max-327x448 as intro_image %}
-          <a href="{% pageurl post %}" title="" class="box-masonry-image with-hover-overlay"><img src="{{ intro_image.url }}" alt="{{ intro_image.alt }}" class="img-responsive"></a>
-          <div class="box-masonry-hover-text-header">
-            <h4> <a href="{% pageurl post %}">{{ post.title }}</a></h4>
-            <div class="box-masonry-desription">
-              <p><a href="{% pageurl post %}" style="text-decoration: none">{{ post.specific.intro }}</a></p>
+<div class="gradient_bg">
+  <div class="grid">
+    <div class="row">
+    {% for post in page.get_children %}
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 masonry-item">
+          <div class="box-masonry">
+            {% image post.specific.intro_image max-327x448 as intro_image %}
+            <a href="{% pageurl post %}" title="" class="box-masonry-image with-hover-overlay"><img src="{{ intro_image.url }}" alt="{{ intro_image.alt }}" class="img-responsive"></a>
+            <div class="box-masonry-hover-text-header">
+              <h4> <a href="{% pageurl post %}">{{ post.title }}</a></h4>
+              <div class="box-masonry-desription">
+                <p><a href="{% pageurl post %}" style="text-decoration: none">{{ post.specific.intro }}</a></p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-  {% endfor %}
+    {% endfor %}
+    </div>
   </div>
 </div>
 <!--   *** PORTFOLIO END ***  -->

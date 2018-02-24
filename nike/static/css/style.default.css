@@ -1,10 +1,10 @@
-/* 
-========================================= 
-========================================= 
+/*
+=========================================
+=========================================
 
-Startup Template By Bootstrapious.com 
+Startup Template By Bootstrapious.com
 
-========================================= 
+=========================================
 ========================================= */
 /* variant 6  - pink */
 /*
@@ -383,15 +383,15 @@ SIDEBAR + RIGHT COLUMN
 .sidebar-menu li:hover:before {
   color: #ef5285;
 }
-.content-column {
+/* .content-column {
   padding-top: 40px;
-}
+} */
 .content-column.white-background {
   background: #fff;
   min-height: 100vh;
 }
 .grid {
-  padding-top: 5px;
+  padding-top: 40px;
   overflow-y: hidden;
 }
 .content-column-content {
@@ -842,15 +842,15 @@ a:active {
 .ekko-lightbox .modal-footer {
   text-align: left;
 }
-.grid {
+/* .grid {
   margin-right: -15px;
   margin-left: -15px;
-}
+} */
 .box-masonry {
   background: #fff;
   margin-bottom: 30px;
   position: relative;
-  box-shadow: 0 0 5px #ccc;
+  box-shadow: 0 0 5px #000;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
