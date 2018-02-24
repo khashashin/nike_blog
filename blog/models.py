@@ -1,10 +1,18 @@
 from django.db import models
 from wagtail.wagtailcore.models import Page
-from wagtail.wagtailcore.fields import RichTextField
-from wagtail.wagtailadmin.edit_handlers import FieldPanel
+from wagtail.wagtailcore.fields import RichTextField, StreamField
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
+from wagtail.wagtailimages.blocks import ImageChooserBlock
 from wagtail.wagtailsearch import index
+from wagtail.wagtailcore.blocks import StructBlock, TextBlock, ListBlock
 
+class ImageCarouselBlock(StructBlock):
+    image = ImageChooserBlock()
+    caption = TextBlock(required=False)
+
+    class Meta:
+        icon = 'image'
 
 class BlogPage(Page):
     date = models.DateField("Post date")
@@ -19,6 +27,9 @@ class BlogPage(Page):
         "Date article modified", blank=True, auto_now=True
     )
     body = RichTextField(blank=True)
+    slider = StreamField([
+        ('image', ListBlock(ImageCarouselBlock(), icon="image")),
+    ], blank=True)
 
     search_fields = Page.search_fields + [
         index.SearchField('intro'),
@@ -32,4 +43,5 @@ class BlogPage(Page):
         FieldPanel('intro'),
         ImageChooserPanel('intro_image'),
         FieldPanel('body', classname="full"),
+        StreamFieldPanel('slider'),
     ]
