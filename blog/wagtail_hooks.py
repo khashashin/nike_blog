@@ -10,7 +10,7 @@ class BlogPageModelAdmin(ModelAdmin):
     menu_icon = 'edit'
     menu_order = 100  # will put in 3rd place (000 being 1st, 100 2nd)
     list_display = ('title', 'date', 'last_modified')
-    list_filter = ('title', 'date', 'last_modified')
+    list_filter = ('date', 'last_modified')
     search_fields = ('title',)
 
 modeladmin_register(BlogPageModelAdmin)
