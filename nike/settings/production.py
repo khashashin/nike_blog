@@ -4,7 +4,7 @@ import os
 from .base import *
 from django.core.exceptions import ImproperlyConfigured
 
-DEBUG = False
+DEBUG = True
 
 env = os.environ.copy()
 # Handling Key Import Errors
