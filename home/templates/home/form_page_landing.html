@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+<div class="row">
+  <div class="col-lg-8">
+    <div class="content-column-content">
+      <h1>{{ page.title }}</h1>
+      {% if page.intro %}
+          <p class="lead">{{ page.intro|richtext }}</p>
+      {% endif %}
+      {% if page.body %}
+          {{ page.body|richtext }}
+      {% endif %}
+      <h4>You can find me also on:</h4>
+      <p class="social social--big"><a href="#" title="" class="facebook"><i class="fa fa-facebook"></i></a><a href="#" title="" class="twitter"><i class="fa fa-twitter"></i></a><a href="#" title="" class="gplus"><i class="fa fa-google-plus"></i></a><a href="#" title="" class="instagram"><i class="fa fa-instagram"></i></a><a href="#" title="" class="email"><i class="fa fa-envelope"></i></a></p>
+      <hr align="center" width="100%" size="2" color="#989898" />
+      {{ page.thank_you_text|richtext }}
+    </div>
+  </div>
+</div>
+{% endblock content %}
