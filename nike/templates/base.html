@@ -63,8 +63,7 @@
                 </p>
                 <ul class="sidebar-menu">
                   <li class="active"><a href="{% pageurl site_root %}">Home</a></li>
-                  <li><a href="#">About</a></li>
-                  <li><a href="#">Get in touch</a></li>
+                  {% side_menu parent=site_root calling_page=self %}
                 </ul>
                 <p class="social">
                   <a href="#" data-animate-hover="pulse" class="external facebook"><i class="fa fa-facebook"></i></a>
