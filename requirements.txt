@@ -13,7 +13,7 @@ django-taggit==0.22.2
 django-storages==1.6.5
 docutils==0.14
 django-treebeard==4.2.0
-djangorestframework==3.6.4
+djangorestframework==3.9.1
 dj-database-url==0.4.2
 html5lib==0.999999999
 jmespath==0.9.3
